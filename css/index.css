@@ -1,0 +1,244 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-color: var(--background-color, #fff);
+    color: var(--text-color, #000);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Main header styling */
+.main-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.main-header h1 {
+    font-size: 2.5rem;
+    color: var(--text-color, #000);
+}
+
+/* Centerpiece subheader styling */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+}
+.content h2.subheader {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    line-height: 1.5;
+}
+
+/* Center the About Me button */
+.about-link-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 1.5rem 0;
+}
+.about-link {
+    display: inline-block;
+    font-size: 1.2rem;
+    color: var(--link-color, #1E90FF); /* Deep sky blue */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--link-border-color, #1E90FF);
+    border-radius: 10px;
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+.about-link:hover {
+    background-color: var(--link-color, #1E90FF);
+    color: #FFF; /* White for contrast */
+    transform: scale(1.05);
+}
+
+/* Sidebar styles */
+.navbar {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    height: calc(100% - 2rem);
+    width: 0;
+    background-color: var(--sidebar-background-color, #2F4F4F); /* Dark slate gray */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    transition: width 0.4s ease-in-out, background-color 0.3s ease;
+}
+.navbar.open {
+    width: 250px;
+}
+.navbar .navbar-buttons {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-left: 1rem;
+}
+.navbar .navbar-buttons .nav-btn {
+    background: none;
+    color: var(--nav-text-color, #FFF);
+    border: none;
+    cursor: pointer;
+    padding: 1rem;
+    text-align: left;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+.navbar .navbar-buttons .nav-btn:hover {
+    background-color: var(--nav-hover-background-color, #4682B4);
+    color: #FFF;
+}
+
+/* Dropdown styling */
+.nav-btn.dropdown-btn {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+.dropdown-arrow {
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease;
+}
+/* Dropdown container with smooth animation */
+.dropdown-container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--sidebar-background-color, #2F4F4F);
+    border-radius: 5px;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+}
+.dropdown-container.show {
+    max-height: 500px; /* Arbitrary high value to allow expansion */
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Sub-button styles */
+.nav-sub-btn {
+    background: none;
+    color: var(--nav-text-color, #FFF);
+    border: none;
+    padding: 1rem;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+.nav-sub-btn:hover {
+    background-color: var(--nav-hover-background-color, #4682B4);
+    color: #FFF;
+}
+
+
+/* Navbar toggle button */
+.navbar-toggle {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: var(--sidebar-background-color, #2F4F4F);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, left 0.4s ease;
+    z-index: 11;
+}
+.navbar-toggle:hover {
+    transform: scale(1.1);
+}
+.navbar.open .navbar-toggle:hover {
+    transform: none;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    color: var(--icon-color, #1E90FF);
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Sidebar footer styling */
+.sidebar-footer {
+    margin-top: auto;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #FFF;
+    background-color: #444;
+    border-radius: 0 0 15px 15px;
+}
+
+/* Light/Dark Mode Variables */
+body.light-mode {
+    --background-color: #F0F8FF;
+    --text-color: #000;
+    --icon-color: #000080;
+    --sidebar-background-color: #B0C4DE;
+    --link-color: #1E90FF;
+    --link-border-color: #1E90FF;
+    --nav-text-color: #000;
+    --nav-hover-background-color: #1E90FF;
+    --hover-accent-color: #000080;
+}
+body.dark-mode {
+    --background-color: #121212;
+    --text-color: #F5F5F5;
+    --icon-color: #87CEFA;
+    --sidebar-background-color: #0A3D62;
+    --link-color: #1E90FF;
+    --link-border-color: #1E90FF;
+    --nav-text-color: #FFF;
+    --nav-hover-background-color: #4682B4;
+    --hover-accent-color: #87CEFA;
+}

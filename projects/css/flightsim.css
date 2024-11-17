@@ -1,0 +1,4 @@
+/* Base CSS similar to main template */
+@import '../../css/index.css'; /* Reuse common styles */
+
+/* Page-specific styling if needed */
